@@ -3,7 +3,9 @@ import { toast } from "react-toastify";
 
 const MovieContext = createContext();
 
-const URL = `https://omdbapi.com/?apikey=90e2854f`;
+const URL = `https://omdbapi.com/?apikey=${
+  import.meta.env.VITE_FETCH_MOVIE_KEY
+}`;
 
 const MovieProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
