@@ -6,6 +6,7 @@ import Watchlist from "./pages/Watchlist";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Error from "./pages/Error";
+import { MovieProvider } from "./context/MovieContext";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         theme="dark"
         bodyStyle={{ color: "yellow" }}
       />
+      <MovieProvider>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -23,6 +26,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
+      </MovieProvider>
     </>
   );
 }
