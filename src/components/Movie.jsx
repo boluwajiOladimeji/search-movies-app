@@ -1,6 +1,7 @@
 import { PlusCircle } from "react-feather";
 import { useMovieContext } from "../context/MovieContext";
 import { MinusCircle } from "react-feather";
+import { Link } from "react-router-dom";
 
 function Movie({ img, movie, btnText, type }) {
   const { handleAddWatchlist } = useMovieContext();
@@ -30,6 +31,7 @@ function Movie({ img, movie, btnText, type }) {
         <p className=" text-sm capitalize">
           <span className="text-blue-500 font-bold">Type</span> : {movie.Type}
         </p>
+        <Link to={`/${movie.imdbID}`}>View more info</Link>
       </div>
     </li>
   );

@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Error from "./pages/Error";
 import { MovieProvider } from "./context/MovieContext";
+import SingleMovie from "./pages/SingleMovie";
 
 function App() {
   return (
@@ -18,14 +19,14 @@ function App() {
         bodyStyle={{ color: "yellow" }}
       />
       <MovieProvider>
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="watchlist" element={<Watchlist />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="watchlist" element={<Watchlist />} />
+            <Route path="/:id" element={<SingleMovie />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </BrowserRouter>
       </MovieProvider>
     </>
   );

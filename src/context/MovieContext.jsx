@@ -7,6 +7,8 @@ const MovieContext = createContext();
 
 const URL = `https://omdbapi.com/?apikey=173c63ec`;
 
+// const testUrl = `https://www.omdbapi.com/?apikey=90e2854f&i=${id}&plot=full`
+
 const MovieProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -56,6 +58,21 @@ const MovieProvider = ({ children }) => {
     localStorage.setItem("watchlist", JSON.stringify(newList));
   };
 
+  // const getMovie = async (id) => {
+  //   try {
+  //     setIsLoading(true);
+  //     const response = await fetch(
+  //       `https://www.omdbapi.com/?apikey=90e2854f&i=${id}&plot=full`,
+  //     );
+  //     const data = await response.json();
+  //     setSelectedMovie(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const getMovies = async (searchQuery, page) => {
     try {
       setIsLoading(true);
@@ -87,6 +104,7 @@ const MovieProvider = ({ children }) => {
         handleGetMovies,
         setSearchQuery,
         isLoading,
+        setIsLoading,
         currentPage,
         numResults,
         handleNextPage,

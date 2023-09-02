@@ -1,5 +1,5 @@
 import { useMovieContext } from "../context/MovieContext";
-import Loader from "../components/Loader";
+import Loader from "./Loader";
 import VideoImg from "./VideoImg";
 import MoviesContainer from "./MoviesContainer";
 import Movies from "./Movies";
