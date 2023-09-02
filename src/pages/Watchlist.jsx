@@ -7,6 +7,7 @@ import MoviesContainer from "../components/MoviesContainer";
 
 function Watchlist() {
   const { watchlist } = useMovieContext();
+
   return (
     <div className="overflow-hidden">
       <Nav>

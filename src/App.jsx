@@ -5,6 +5,7 @@ import Watchlist from "./pages/Watchlist";
 // import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="watchlist" element={<Watchlist />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </>

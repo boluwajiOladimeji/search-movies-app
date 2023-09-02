@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const MovieContext = createContext();
@@ -11,7 +11,7 @@ const MovieProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [watchlist, setWatchlist] = useState(
-    () => JSON.parse(localStorage.getItem("watchlist")) || [],
+    JSON.parse(localStorage.getItem("watchlist")) || [],
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,6 +55,10 @@ const MovieProvider = ({ children }) => {
     );
     localStorage.setItem("watchlist", JSON.stringify(newList));
   };
+
+  useEffect(() => {
+    console.log(watchlist);
+  }, []);
 
   const getMovies = async (searchQuery, page) => {
     try {
