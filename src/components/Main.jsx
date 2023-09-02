@@ -9,7 +9,7 @@ function Main() {
   const { movies, isLoading } = useMovieContext();
 
   return (
-    <section className="min-h-[calc(100vh-208px)]  py-12 px-6 flex items-center justify-center">
+    <section className="min-h-[calc(100vh-208px)]  py-12 px-6 flex items-center justify-center bg-yellow-200/50">
       {movies.length < 1 && !isLoading && <VideoImg />}
 
       {isLoading && <Loader />}
@@ -17,7 +17,7 @@ function Main() {
       {movies.length > 1 && !isLoading && (
         <MoviesContainer>
           <PagesBtn />
-          <Movies movies={movies} btnText={"watchlist"} type='plus' />
+          <Movies movies={movies} btnText={"watchlist"} type="plus" />
         </MoviesContainer>
       )}
     </section>

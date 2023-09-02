@@ -22,28 +22,28 @@ function Watchlist() {
           </Link>
         </div>
       </Nav>
-      <section className="min-h-[calc(100vh-208px)]  py-12 px-6 flex">
-        {watchlist.length < 1 && (
-          <div className=" flex items-center justify-center">
-            <div className="flex flex-col items-center space-y-4">
-              <h3 className="text-gray-400 text-2xl text-center">
-                Your watch list is looking a little empty
-              </h3>
-              <Link
-                to="/"
-                className="text-gray-800 text-xl gap-2 flex items-center hover:text-blue-500 transition-all duration-200"
-              >
-                <PlusCircle size={19} /> Lets add some movies
-              </Link>
-            </div>
+      {watchlist.length < 1 && (
+        <section className="min-h-[calc(100vh-208px)]  py-12 px-6 flex items-center justify-center bg-yellow-200/50">
+          <div className="flex flex-col items-center space-y-4 ">
+            <h3 className="text-gray-400 text-2xl text-center">
+              Your watch list is looking a little empty
+            </h3>
+            <Link
+              to="/"
+              className="text-gray-800 text-xl gap-2 flex items-center hover:text-blue-500 transition-all duration-200"
+            >
+              <PlusCircle size={19} /> Lets add some movies
+            </Link>
           </div>
-        )}
-        {watchlist.length >= 1 && (
+        </section>
+      )}
+      {watchlist.length >= 1 && (
+        <div className="min-h-[calc(100vh-208px)] bg-yellow-200/50 py-12 px-6">
           <MoviesContainer>
             <Movies movies={watchlist} btnText={"remove"} type="minus" />
           </MoviesContainer>
-        )}
-      </section>
+        </div>
+      )}
     </div>
   );
 }

@@ -10,7 +10,7 @@ function Movie({ img, movie, btnText, type }) {
       <img src={img} alt="" className="h-full w-32 object-cover" />
       <div className="flex flex-col items-start justify-center space-y-3 ">
         <button
-          className="font-extrabold  flex items-center gap-1 capitalize"
+          className="font-medium text-sm  flex items-center gap-1 capitalize"
           onClick={() => handleAddWatchlist(movie, movie.imdbID, type)}
         >
           {type === "plus" ? (
@@ -20,7 +20,7 @@ function Movie({ img, movie, btnText, type }) {
           )}
           {btnText}
         </button>
-        <h2 className="text-sm font-bold italic ">
+        <h2 className="text-sm font-extrabold italic ">
           <span className="text-blue-500 font-bold">Title</span> {movie.Title}
         </h2>
         <p className=" text-sm">
