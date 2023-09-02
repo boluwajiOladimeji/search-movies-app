@@ -77,7 +77,9 @@ const MovieProvider = ({ children }) => {
     try {
       setIsLoading(true);
 
-      const response = await fetch(`${URL}&s=${searchQuery}&page=${page}`);
+      const response = await fetch(
+        `${URL}&s=${searchQuery.trim()}&page=${page}`,
+      );
 
       if (!response.ok) throw new Error("Please try again");
 
