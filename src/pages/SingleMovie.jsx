@@ -55,7 +55,7 @@ export default function SingleMovie() {
           <p>{selectedMovie.Genre}</p>
           <p>{selectedMovie.Runtime}</p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-xs md:text-sm">
           <p>Released: {selectedMovie.Released}</p>
           <ul className="">
             {selectedMovie?.Ratings?.map((rating, i) => {
