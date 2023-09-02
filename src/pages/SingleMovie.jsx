@@ -51,8 +51,8 @@ export default function SingleMovie() {
         <h1 className="text-xl md:text-2xl font-bold ">
           {selectedMovie.Title} <span> ({selectedMovie.Rated})</span>
         </h1>
-        <div className="flex justify-between">
-          <p>{selectedMovie.Genre}</p>
+        <div className="flex justify-between text-sm">
+          <p className="text-blue-500">{selectedMovie.Genre}</p>
           <p>{selectedMovie.Runtime}</p>
         </div>
         <div className="flex justify-between text-xs md:text-sm">
@@ -70,11 +70,17 @@ export default function SingleMovie() {
         <p className="italic">{selectedMovie.Plot}</p>
         <div className="flex justify-between items-center mb-4">
           <button
+            className="text-blue-500 font-bold hover:text-yellow-600 transition-all duration-200"
             onClick={() => handleAddWatchlist(selectedMovie, id, type.current)}
           >
             Add to watchlist
           </button>
-          <button onClick={() => navigate(-1)}>Back</button>
+          <button
+            className="text-blue-500 font-bold hover:text-yellow-600 transition-all duration-200"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
         </div>
       </div>
     </div>

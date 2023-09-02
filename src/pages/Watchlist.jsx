@@ -17,7 +17,7 @@ function Watchlist() {
           </h1>
           <Link
             to="/"
-            className="text-gray-200 hover:text-yellow-400 my-0 text-lg  font-bold"
+            className="text-yellow-400 hover:text-yellow-200 my-0 text-lg  font-bold"
           >
             Search Movie
           </Link>

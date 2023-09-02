@@ -31,7 +31,12 @@ function Movie({ img, movie, btnText, type }) {
         <p className=" text-sm capitalize">
           <span className="text-blue-500 font-bold">Type</span> : {movie.Type}
         </p>
-        <Link to={`/${movie.imdbID}`}>View more info</Link>
+        <Link
+          className="text-blue-500 font-bold hover:text-yellow-600 transition-all duration-200"
+          to={`/${movie.imdbID}`}
+        >
+          View more info
+        </Link>
       </div>
     </li>
   );
