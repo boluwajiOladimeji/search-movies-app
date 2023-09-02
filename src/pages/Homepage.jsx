@@ -13,7 +13,7 @@ function Homepage() {
           </h1>
           <Link
             to="watchlist"
-            className="text-white hover:text-yellow-400 my-0 text-lg"
+            className="text-gray-200 font-bold hover:text-yellow-400 my-0 text-lg"
           >
             My Watchlist
           </Link>
