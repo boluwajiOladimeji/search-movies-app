@@ -10,9 +10,7 @@ const URL = `https://omdbapi.com/?apikey=${
 const MovieProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [watchlist, setWatchlist] = useState(
-    JSON.parse(localStorage.getItem("watchlist")) || [],
-  );
+  const [watchlist, setWatchlist] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [numResults, setNumResults] = useState(null);
@@ -57,7 +55,8 @@ const MovieProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(watchlist);
+    const mylist = JSON.parse(localStorage.getItem("watchlist"));
+    setWatchlist(mylist);
   }, []);
 
   const getMovies = async (searchQuery, page) => {
