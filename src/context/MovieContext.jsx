@@ -1,16 +1,18 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 
 const MovieContext = createContext();
 
-const URL = `https://omdbapi.com/?apikey=${
-  import.meta.env.VITE_FETCH_MOVIE_KEY
-}`;
+// const API_KEY = "90e2854f";
+
+const URL = `https://omdbapi.com/?apikey=173c63ec`;
 
 const MovieProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [watchlist, setWatchlist] = useState([]);
+  const [watchlist, setWatchlist] = useState(
+    () => JSON.parse(localStorage.getItem("watchlist")) || [],
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [numResults, setNumResults] = useState(null);
@@ -53,11 +55,6 @@ const MovieProvider = ({ children }) => {
     );
     localStorage.setItem("watchlist", JSON.stringify(newList));
   };
-
-  useEffect(() => {
-    const mylist = JSON.parse(localStorage.getItem("watchlist"));
-    setWatchlist(mylist);
-  }, []);
 
   const getMovies = async (searchQuery, page) => {
     try {
