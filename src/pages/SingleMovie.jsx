@@ -20,6 +20,10 @@ export default function SingleMovie() {
         `https://www.omdbapi.com/?apikey=90e2854f&i=${id}&plot=full`,
       );
       const data = await response.json();
+      if (data.Response === "False") {
+        navigate("*");
+        return;
+      }
       setSelectedMovie(data);
     } catch (error) {
       console.log(error);
