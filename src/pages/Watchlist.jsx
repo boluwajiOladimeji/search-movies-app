@@ -26,7 +26,7 @@ function Watchlist() {
         {watchlist.length < 1 && (
           <div className=" flex items-center justify-center">
             <div className="flex flex-col items-center space-y-4">
-              <h3 className="text-gray-400 text-2xl">
+              <h3 className="text-gray-400 text-2xl text-center">
                 Your watch list is looking a little empty
               </h3>
               <Link
