@@ -3,8 +3,6 @@ import { toast } from "react-toastify";
 
 const MovieContext = createContext();
 
-// const API_KEY = "90e2854f";
-
 const URL = `https://omdbapi.com/?apikey=${
   import.meta.env.VITE_FETCH_MOVIE_KEY
 }`;
