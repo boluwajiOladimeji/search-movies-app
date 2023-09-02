@@ -52,8 +52,16 @@ export default function SingleMovie() {
           {selectedMovie.Title} <span> ({selectedMovie.Rated})</span>
         </h1>
         <div className="flex justify-between text-sm">
-          <p className="text-blue-500">{selectedMovie.Genre}</p>
-          <p>{selectedMovie.Runtime}</p>
+          <p className="text-blue-500">
+            <span className="text-slate-800">Genre: </span>
+            {selectedMovie.Genre}
+          </p>
+
+          <p className="text-blue-500">
+            {" "}
+            <span className="text-slate-800">Runtime: </span>{" "}
+            {selectedMovie.Runtime}
+          </p>
         </div>
         <div className="flex justify-between text-xs md:text-sm">
           <p>Released: {selectedMovie.Released}</p>
