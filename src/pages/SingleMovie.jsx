@@ -37,7 +37,7 @@ export default function SingleMovie() {
   }, [id]);
 
   return (
-    <div className="pb-2 bg-yellow-200/50 md:flex md:p-8 md:items-center md:justify-between min-h-screen md:gap-3">
+    <div className="pb-2 bg-yellow-100/50 md:flex md:p-8 md:items-center md:justify-between min-h-screen md:gap-3">
       {isLoading && <LoaderMovieSearch />}
       {/* {selectedMovie && <h2>hello there {selectedMovie.Title}</h2>} */}
 
