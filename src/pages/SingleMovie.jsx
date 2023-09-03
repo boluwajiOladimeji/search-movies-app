@@ -44,7 +44,7 @@ export default function SingleMovie() {
       <div className="md:w-3/6">
         {selectedMovie.Poster !== "N/A" && (
           <img
-            className="w-full h-64 object-center"
+            className=" w-full mx-auto md:w-3/4 h-64 md:h-80 object-center object-fill"
             src={selectedMovie.Poster}
             alt=""
           />
@@ -67,18 +67,61 @@ export default function SingleMovie() {
             {selectedMovie.Runtime}
           </p>
         </div>
-        <div className="flex justify-between text-xs md:text-sm">
-          <p>Released: {selectedMovie.Released}</p>
+        <div className="flex justify-between text-sm">
+          <p className="text-blue-500">
+            {" "}
+            <span className="text-slate-800">Metascore: </span>{" "}
+            {selectedMovie.Metascore}
+          </p>
+
+          <p className="text-blue-500">
+            {" "}
+            <span className="text-slate-800">imdbRating: </span>{" "}
+            {selectedMovie.imdbRating}
+          </p>
+        </div>
+        <div className="flex justify-between text-sm">
+          <p>
+            Released:{" "}
+            <span className="text-blue-500">{selectedMovie.Released}</span>{" "}
+          </p>
           <ul className="">
             {selectedMovie?.Ratings?.map((rating, i) => {
               return (
                 <li key={i}>
-                  {rating.Source}: <span>{rating.Value}</span>
+                  {rating.Source}:{" "}
+                  <span className="text-blue-500">{rating.Value}</span>
                 </li>
               );
             })}
           </ul>
         </div>
+
+        <p className="text-blue-500 text-sm">
+          {" "}
+          <span className="text-slate-800">Director: </span>{" "}
+          {selectedMovie.Director}
+        </p>
+        <p className="text-blue-500 text-sm">
+          {" "}
+          <span className="text-slate-800">Writer: </span>{" "}
+          {selectedMovie.Writer}
+        </p>
+        <p className="text-blue-500 text-sm">
+          {" "}
+          <span className="text-slate-800">Cast: </span> {selectedMovie.Actors}
+        </p>
+
+        <p className="text-blue-500 text-sm">
+          {" "}
+          <span className="text-slate-800">BoxOffice: </span>{" "}
+          {selectedMovie.BoxOffice}
+        </p>
+        <p className="text-blue-500 text-sm">
+          {" "}
+          <span className="text-slate-800">Awards: </span>{" "}
+          {selectedMovie.Awards}
+        </p>
         <p className="italic">{selectedMovie.Plot}</p>
         <div className="flex justify-between items-center mb-4">
           <button
