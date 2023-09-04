@@ -2,7 +2,8 @@ import { Search } from "react-feather";
 import { useMovieContext } from "../context/MovieContext";
 
 function MovieInput() {
-  const { searchQuery, setSearchQuery, handleGetMovies } = useMovieContext();
+  const { searchQuery, setSearchQuery, handleGetMovies, isLoading } =
+    useMovieContext();
 
   return (
     <form
@@ -20,6 +21,7 @@ function MovieInput() {
         />
       </div>
       <button
+        disabled={isLoading}
         type="submit"
         className="text-center w-3/12 border-l border-gray-100 bg-gray-100 text-gray-600"
       >
