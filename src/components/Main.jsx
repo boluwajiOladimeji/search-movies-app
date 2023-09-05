@@ -14,7 +14,7 @@ function Main() {
 
       {isLoading && <Loader />}
 
-      {movies.length > 1 && !isLoading && (
+      {movies.length >= 1 && !isLoading && (
         <MoviesContainer>
           <PagesBtn />
           <Movies movies={movies} btnText={"watchlist"} type="plus" />

@@ -23,7 +23,7 @@ function MovieInput() {
       <button
         disabled={isLoading}
         type="submit"
-        className="text-center w-3/12 border-l border-gray-100 bg-gray-100 text-gray-600"
+        className="text-center w-3/12 border-l border-gray-100 bg-gray-100 text-gray-600 disabled:cursor-not-allowed"
       >
         Search
       </button>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 import { toast } from "react-toastify";
 
 const MovieContext = createContext();
@@ -19,12 +19,21 @@ const MovieProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [numResults, setNumResults] = useState(null);
 
+  let currSearch = useRef("");
+  let activePage = useRef(1);
+
   const handleGetMovies = (e) => {
     e.preventDefault();
     if (!searchQuery) return;
     let newPage = 1;
+    // prevents use from fetching if its still the same query
+    if (currSearch.current === searchQuery && activePage.current === newPage)
+      return;
+    // allows to fetch
     setCurrentPage(newPage);
     getMovies(searchQuery, newPage);
+    currSearch.current = searchQuery;
+    activePage.current = currentPage;
   };
 
   const handleNextPage = () => {
@@ -41,10 +50,12 @@ const MovieProvider = ({ children }) => {
 
   const handleAddWatchlist = (movie, id, type) => {
     const isIn = watchlist.some((movie) => movie.imdbID === id);
+
     if (isIn && type === "plus") {
       toast.error(`${movie.Title} already in List`);
       return;
     }
+
     let newList =
       type === "plus"
         ? [...watchlist, movie]
@@ -58,28 +69,11 @@ const MovieProvider = ({ children }) => {
     localStorage.setItem("watchlist", JSON.stringify(newList));
   };
 
-  // const getMovie = async (id) => {
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await fetch(
-  //       `https://www.omdbapi.com/?apikey=90e2854f&i=${id}&plot=full`,
-  //     );
-  //     const data = await response.json();
-  //     setSelectedMovie(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  const getMovies = async (searchQuery, page) => {
+  const getMovies = async (search, page) => {
     try {
       setIsLoading(true);
 
-      const response = await fetch(
-        `${URL}&s=${searchQuery.trim()}&page=${page}`,
-      );
+      const response = await fetch(`${URL}&s=${search.trim()}&page=${page}`);
 
       if (!response.ok) throw new Error("Please try again");
 
